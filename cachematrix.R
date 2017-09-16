@@ -2,9 +2,9 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+## Initialize functions to get or set values to variables in parent environment
 makeCacheMatrix <- function(x = matrix()) {
-        #set inverse value to NULL in parent environment
+        #set inverse value to NULL 
         m <- NULL
         
         #set new matrix value to x (available in parent environment)
@@ -13,13 +13,13 @@ makeCacheMatrix <- function(x = matrix()) {
                 m <<- NULL
         }
         
-        #get x from parent environment
+        #display x
         get <- function() x
         
         #set inverse value to m in parent environment
         setInverse <- function (inverse) m<<- inverse
         
-        #get value of m from parent environment
+        #display inverse value m
         getInverse <- function() m
         
         #create list of named functions
@@ -29,6 +29,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
+## Return a matrix that is the inverse of 'x'
 cacheSolve <- function(x, ...) {
         
         # get the value of inverse
@@ -38,7 +39,7 @@ cacheSolve <- function(x, ...) {
         if(!is.null(m)) {
                 message ("getting cached data")
                 
-                #if inverse exists return the value of its inverse for the given matrix
+                #if inverse exists return the value for the given matrix
                 return(m)
         }
         
@@ -50,6 +51,4 @@ cacheSolve <- function(x, ...) {
         x$setInverse(m)
         #return inverse value
         m
-        ## Return a matrix that is the inverse of 'x'
-        
 }
